@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'client/public')));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
+require("./routes/userRoute.js")(app);
 
 db.sequelize.sync({force: true}).then(() => {
 	seeds(db.sequelize.queryInterface, db.Sequelize);
