@@ -1,4 +1,4 @@
-import db from "../models"
+var db = require("../models");
 
 module.exports = {
     // Creates User Profile in DB
@@ -12,17 +12,18 @@ module.exports = {
             year: req.body.year
         }).then((data) => {
             console.log("Login Posted: "+ data);
+            return;
         }).catch((err) => {
-            res.send(err)
+            return err;
         })
     },
     // Gets User Info from DB
     getUser: (req,res) => {
         db.users.findOne(req.body)
         .then((data) => {
-            res.send(data);
+            return data;
         }).catch((err) => {
-            res.send(err)
+            return err;
         })
     }
 }
