@@ -4,7 +4,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "social_db"
+  database: "getSocial_DB"
 });
 
 
