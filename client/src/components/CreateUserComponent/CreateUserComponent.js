@@ -8,9 +8,9 @@ class CreateUser extends React.Component {
 		return(
 
 			
-			<div className="container">
+			<div>
 			<br />
-				<div className="row">
+				<div className="row justify-content-center">
 					<div className="col-md-8">
 						<div className="card">
 							<div className="card-body">
@@ -48,7 +48,7 @@ class CreateUser extends React.Component {
 											</select>
 										</div>
 										
-										<button> submit </button>
+										<button type="button"> <a href="/login"> submit </a> </button>
 									</form>
 							</div>
 						</div>

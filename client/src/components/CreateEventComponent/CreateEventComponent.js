@@ -8,9 +8,9 @@ class CreateEvent extends React.Component {
 		return(
 
 			
-			<div className="container">
+			<div>
 			<br />
-				<div className="row">
+				<div className="row justify-content-center">
 					<div className="col-md-8">
 						<div className="card">
 							<div className="card-body">
@@ -28,7 +28,7 @@ class CreateEvent extends React.Component {
 											<label for="eventDescription"> Discription </label>
 											<textarea name="Discription" className="form-control" rows="10"> Event description goes here... </textarea>
 										</div>
-										<button> submit </button>
+										<button type="button"> <a href="/dashboard" >Submit</a> </button>
 									</form>
 							</div>
 						</div>
