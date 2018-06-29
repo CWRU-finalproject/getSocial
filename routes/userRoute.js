@@ -2,11 +2,18 @@ var user = require("../controllers/userController.js")
 
 module.exports = (app) => {
     app.get("/api/user", function (req,res) {
-        const result = user.getUser(req,res);
-        res.json(result);
+        user.getUser(req,res);
+        
     });
     app.post("/api/user", function(req,res){
-        user.postUser(req,res);
-        res.sendStatus(200);
+        user.postUser(req,res,function(err){
+            if(err){
+                console.log(err)
+                res.sendStatus(500)
+                return;
+            }
+           res.sendStatus(200); 
+        });
+        
     })
 }
