@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = {
     // Creates User Profile in DB
-    postUser: (req,res) => {
+    postUser: (req,res,func) => {
         db.users.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -11,19 +11,24 @@ module.exports = {
             major: req.body.major,
             year: req.body.year
         }).then((data) => {
-            console.log("Login Posted: "+ data);
+            console.log("Login Posted: "+ data.json);
+            func()
             return;
         }).catch((err) => {
-            return err;
+            func(err)
+            return;
         })
     },
     // Gets User Info from DB
     getUser: (req,res) => {
-        db.users.findOne(req.body)
+        db.users.findOne({
+            email:req.body.email,
+            password:req.body.password
+        })
         .then((data) => {
-            return data;
+            res.json(data);
         }).catch((err) => {
-            return err;
+            res.json(err);
         })
     }
 }
