@@ -2,6 +2,7 @@ import axios from "axios"
 
 export default {
 //----- Need to change from AJAX to AXIOS -----//
+<<<<<<< HEAD
 
 // Gets one user based on email and password
 getUser: function(email,ps) {
@@ -30,6 +31,36 @@ postUser: function(obj){
     }).catch((err) => {
         alert(err);
     })
+=======
+// getUser: function(email,ps) {
+//     $.ajax({
+//         url: "/api/user",
+//         type: "GET",
+//         data: {
+//             email:email,
+//             password:ps
+//         }
+//     }).then((user) => {
+//         return user;
+//     }).catch((err) => {
+//         console.log(err);
+//     })
+
+
+// },
+postUser: function(userObj){
+    return axios.post("/api/user", userObj);
+
+    // $.ajax({
+    //     url:"/api/user",
+    //     type:"POST",
+    //     data: obj
+    // }).then(() => {
+    //     alert("succesful")
+    // }).catch((err) => {
+    //     alert(err);
+    // })
+>>>>>>> 63464023999bb87a495909f10f3b6981c792038e
 }
     
 }
