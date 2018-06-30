@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3001;
 
 const db = require("./models");
 
@@ -19,6 +19,7 @@ app.get('/', function (req, res) {
 require("./routes/userRoute.js")(app);
 
 db.sequelize.sync({force: true}).then(() => {
+	seeds(db.sequelize.queryInterface, db.Sequelize);
 	app.listen(PORT, function(){
 	    console.log(`Server running on ${PORT}`)
 	})
