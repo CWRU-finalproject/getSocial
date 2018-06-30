@@ -30,6 +30,47 @@ postUser: function(obj){
     }).catch((err) => {
         alert(err);
     })
-}
-    
+},
+getAllUsers: function(){
+    axios({
+        url:"/api/users",
+        type:"get"
+    })
+    .then((response) => {
+        return response;
+    })
+    .catch((err) => {
+        alert(err);
+    })
+},
+//************************************* */
+//************************************* */
+getAllEvents: function(){
+    axios({
+        url:"/api/events",
+        type:"get",
+
+    })
+    .then((response) => {
+        return response;
+    })
+    .catch((err) => {
+        alert(err);
+    })
+},
+
+postEvent: function(obj){
+    axios({
+        url:"/api/event",
+        type:"post",
+        data:obj
+    })
+    .then((response) => {
+        console.log(response)
+        alert("successful")
+    })
+    .catch((err) => {
+        alert(err);
+    })
+},
 }
