@@ -19,6 +19,7 @@ app.get('/', function (req, res) {
 require("./routes/userRoute.js")(app);
 
 db.sequelize.sync({force: true}).then(() => {
+	seeds(db.sequelize.queryInterface, db.Sequelize);
 	app.listen(PORT, function(){
 	    console.log(`Server running on ${PORT}`)
 	})
