@@ -58,7 +58,7 @@ getAllEvents: function(){
         alert(err);
     })
 },
-
+//adds an event to the database
 postEvent: function(obj){
     axios({
         url:"/api/event",
@@ -73,4 +73,33 @@ postEvent: function(obj){
         alert(err);
     })
 },
+//remove needs user authentication
+removeEvent: function(id){
+    axios({
+        url:"/api/event/"+id,
+        type:"delete"
+    })
+    .then((response) => {
+        console.log(response);
+        alert("successful delete")
+    })
+    .catch((err) => {
+        alert(err)
+    })
+},
+//update needs user authentication
+updateEvent: function(id,obj){
+    axios({
+        url:"/api/event/"+id,
+        type:"put",
+        data: obj
+    })
+    .then((response) => {
+        console.log(response);
+        alert("update successful")
+    })
+    .catch((err) => {
+        alert(err);
+    })
+}
 }
