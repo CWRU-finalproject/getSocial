@@ -7,10 +7,10 @@ module.exports = (app) => {
     app.post("/api/event",function(req,res){
         event.create(req,res);
     });
-    app.put("/api/event",function(req,res){
+    app.put("/api/event/:id",function(req,res){
         event.update(req,res);
     });
-    app.delete("/api/event",function(req,res){
+    app.delete("/api/event/:id",function(req,res){
         event.remove(req,res);
     })
 }
