@@ -7,9 +7,11 @@ module.exports = {
           .find(req.query)
           .sort({ date: -1 })
           .then((data) => {
-            return data;
+            res.json(data)
         }).catch((err) => {
-            return err;
+            res.status(500).json({
+                error: err.message
+              })
         })
       },
       //Create event
@@ -18,10 +20,12 @@ module.exports = {
             title: req.body.title,
             description: req.body.description,
             date: req.body.date,
-        }).then((data) => {
-            return data;
+        }).then(() => {
+            res.status(200);
         }).catch((err) => {
-            return err;
+            res.status(500).json({
+                error: err.message
+              })
         })
       },
       //Update an event
@@ -29,9 +33,12 @@ module.exports = {
         db.Event
           .findOneAndUpdate({ _id: req.params.id }, req.body)
           .then((data) => {
-            return data;
+            console.log(data.affectedrows);
+            res.status(200);
         }).catch((err) => {
-            return err;
+            res.status(500).json({
+                error: err.message
+              })
         })
       },
       //Allows user to delete an event
@@ -40,9 +47,12 @@ module.exports = {
           .findById({ _id: req.params.id })
           .then(dbModel => dbModel.remove())
           .then((data) => {
-            return data;
+            console.log(data.affectedrows);
+            res.status(200);
         }).catch((err) => {
-            return err;
+            res.status(500).json({
+                error: err.message
+              })
         })
       }
 }
