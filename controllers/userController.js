@@ -40,6 +40,7 @@ module.exports = {
               })
         })
     },
+    //Get all users in api for testing
     getAllUsers: (req,res) => {
         db.users.findAll()
         .then((data) => {

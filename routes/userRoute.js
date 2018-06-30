@@ -10,6 +10,6 @@ module.exports = (app) => {
         
     })
     app.get("/api/users",function(req,res){
-        user.getAllUsers(res,res);
+        user.getAllUsers(req,res);
     })
 }
