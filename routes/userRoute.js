@@ -6,10 +6,14 @@ module.exports = (app) => {
         
     });
     app.post("/api/user", function(req,res){
-        user.postUser(req,res);
+        user.postUser(req,res,function(err){
+            if(err){
+                console.log(err)
+                res.sendStatus(500)
+                return;
+            }
+           res.sendStatus(200); 
+        });
         
-    })
-    app.get("/api/users",function(req,res){
-        user.getAllUsers(req,res);
     })
 }
