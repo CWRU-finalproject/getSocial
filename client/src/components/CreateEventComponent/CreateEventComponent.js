@@ -59,24 +59,24 @@ class CreateEvent extends React.Component {
 								<h3 className="card-title"> New Event </h3>
 									<form className="createEventForm">
 										<div className="form-group">
-											<label> Title </label>
-											<input name="title" type="text" className="form-control" value={this.state.title} onChange={this.handleInputChange} />
+											<label id="form"> Title </label>
+											<input id="input" name="title" type="text" className="form-control" value={this.state.title} onChange={this.handleInputChange} />
 										</div>
 										<div className="form-group">
-											<label> Description </label>
-											<textarea name="description" className="form-control" rows="10" value={this.state.description} onChange={this.handleInputChange}> Event description goes here... </textarea>
+											<label id="form"> Description </label>
+											<textarea id="input" name="description" className="form-control" rows="10" value={this.state.description} onChange={this.handleInputChange}> Event description goes here... </textarea>
 										</div>
 										<div className="form-group">
-											<label> Date </label>
-											<input name="date" type="date" className="form-control" value={this.state.date} onChange={this.handleInputChange} />
+											<label id="form"> Date </label>
+											<input id="input" name="date" type="date" className="form-control" value={this.state.date} onChange={this.handleInputChange} />
 										</div>
 										<div className="form-group">
-											<label> Location </label>
-											<input name="location" type="text" className="form-control" value={this.state.location} onChange={this.handleInputChange}/>
+											<label id="form"> Location </label>
+											<input id="input" name="location" type="text" className="form-control" value={this.state.location} onChange={this.handleInputChange}/>
 										</div>
 										<div className="form-group">
-											<label> Event Filter </label>
-											<select className="form-control" name="filter" value={this.state.filter} onChange={this.handleInputChange}>
+											<label id="form"> Event Filter </label>
+											<select className="form-control" id="input" name="filter" value={this.state.filter} onChange={this.handleInputChange}>
 												<option> All Events </option>
 												<option> Recreation </option>
 												<option> Study </option>
@@ -86,7 +86,7 @@ class CreateEvent extends React.Component {
 											</select>
 										</div>
 										
-										<button type="button" onClick={this.handleFormSubmit}> submit </button>
+										<button id="signinBtn" type="button" onClick={this.handleFormSubmit}> Submit </button>
 									</form>
 							</div>
 						</div>

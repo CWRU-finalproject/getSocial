@@ -1,0 +1,53 @@
+#signinBtn { 
+    width: 165px;
+    height:35px;  
+    border-radius: 4px;
+    background: #3b5998;
+    color:white;
+    border:0px transparent;  
+    text-align: center;
+    margin:5px;
+    display: inline-block;
+    }
+
+  #signupBtn { 
+    margin:5px;
+    width: 165px;
+    height:35px;  
+    border-radius: 4px;
+    border-radius: 4px;
+    background: #db3236;
+    color:white;
+    border:0px transparent;
+    text-align: center;
+  }
+
+  #signinBtn:hover {
+    background: #3b5998;
+    opacity: 0.6;
+  }
+
+  #signupBtn:hover {
+    background: #db3236;
+    opacity: 0.6;
+  }
+  
+  .card {
+    background-color: #2c3e50;
+  }
+
+  #input {
+    height: 40;
+    background-color: rgba(225,225,225,0.2);
+    margin-bottom: 10;
+    padding: 10;
+    color: #fff;
+}
+
+.card-title {
+    color:#fff;
+}
+
+#form {
+    color:#fff;
+}

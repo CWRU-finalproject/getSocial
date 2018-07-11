@@ -51,31 +51,7 @@ class EventContainer extends React.Component {
 			<div>
 
 				<div className="row  justify-content-end">
-					<div className="col-md-3">
-						<div className="card">
-							<div className="card-body">
-								<h3 className="card-title"> Filter Events </h3>
-								<form className="eventFilterForm">
-									<div className="form-group">
-										<select className="form-control" name="filter" value={this.state.filter}  onChange={this.handleInputChange}>
-											
-											<option> All Events </option>
-											<option> Recreation </option>
-											<option> Study </option>
-											<option> Meal </option>
-											<option> Club Event </option>
-											<option> Misc </option>
-										</select>
-									</div>
-
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div className="row">
-					<div className="col-md-9">
+				<div className="col-md-9">
 						<div className="card">
 							<div className="card-body">
 
@@ -99,6 +75,11 @@ class EventContainer extends React.Component {
 								
 								
 								
+						<span>
+							
+							<a href="/dashboard/createevent"><button id="signinBtn">Create New Event</button></a>
+							
+						</span>
 								
 
 									
@@ -106,16 +87,26 @@ class EventContainer extends React.Component {
 							</div>
 						</div>
 					</div>
-				</div>
+					<div className="col-md-3">
+						<div className="card">
+							<div className="card-body">
+								<h3 className="card-title"> Filter Events </h3>
+								<form className="eventFilterForm">
+									<div className="form-group">
+										<select className="form-control" id="signinBtn" name="filter" value={this.state.filter}  onChange={this.handleInputChange}>
+											
+											<option> All Events </option>
+											<option> Recreation </option>
+											<option> Study </option>
+											<option> Meal </option>
+											<option> Club Event </option>
+											<option> Misc </option>
+										</select>
+									</div>
 
-
-				<div className="row justify-content-end">
-					<div className="col-md-2">
-						<span>
-							
-							<button> <a href="/dashboard/createevent" > Create New </a>  </button>
-							
-						</span>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 
