@@ -54,22 +54,7 @@ getAllEvents: function(array){
         url:"/api/events",
         type:"get"
     })
-    // .then((data) => {
 
-    //     while(array.length){
-    //         array.pop();
-    //     }
-
-    //     data.data.forEach(function(element) {
-            
-    //         array.push(element);
-    //     });
-    //    // console.log(array);
-    //     return array;
-    // })
-    // .catch((err) => {
-    //     alert(err);
-    // })
 },
 
 getFilteredEvents: function(array, filter){
@@ -79,23 +64,7 @@ getFilteredEvents: function(array, filter){
         url:"/api/events/" + filter,
         type:"get"
     })
-    // .then((data) => {
 
-    //     while(array.length){
-    //         array.pop();
-    //     }
-
-
-    //     data.data.forEach(function(element) {
-            
-    //         array.push(element);
-    //     });
-    //    // console.log(array);
-    //     return array;
-    // })
-    // .catch((err) => {
-    //     alert(err);
-    // })
 },
 
 postEvent: function(obj){
