@@ -8,9 +8,9 @@ import LoginComponent from "./components/LoginComponent/LoginComponent.js";
 import { 
   BrowserRouter as Router,
   Route,
-  Link,
-  Switch,
-  Redirect
+  //Link,
+  Switch
+ // Redirect
 } from 'react-router-dom';
 
 class App extends Component {

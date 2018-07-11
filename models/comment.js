@@ -22,7 +22,7 @@ module.exports = (sequelize, Sequelize) => {
 	});
 
 	comment.associate = (models) => {
-		comment.belongsTo(models.event, {
+		comment.belongsTo(models.events, {
 			foreignKey: {
           		allowNull: false
        		}

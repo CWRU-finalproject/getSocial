@@ -21,18 +21,21 @@ class CreateUser extends React.Component {
 
 	handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.email && this.state.major && this.state.year) {
-      API.postUser({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        password: this.state.password,
-        email: this.state.email,
-        major: this.state.major,
-        year:this.state.year
-      })
-        .catch(err => console.log(err));
-    }
-  };
+	    if (this.state.firstName && this.state.lastName && this.state.email && this.state.major && this.state.year) {
+	    	API.postUser({
+		        firstName: this.state.firstName,
+		        lastName: this.state.lastName,
+		        password: this.state.password,
+		        email: this.state.email,
+		        major: this.state.major,
+		        year:this.state.year
+	    	}).catch(err => console.log(err));
+	    }
+    };
+
+	redirectToLogin = () => {
+
+	};
 
 
 	render(){

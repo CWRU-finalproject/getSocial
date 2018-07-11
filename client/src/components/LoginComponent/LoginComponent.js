@@ -12,13 +12,13 @@ class Login extends React.Component {
 						<div className="card">
 							<div className="card-body">
 								<h3 className="card-title"> Login </h3>
-									<form className="createEventForm">
+									<form className="LoginForm">
 										<div className="form-group">
-											<label for="eventTitle"> Email </label>
+											<label> Email </label>
 											<input type="text" className="form-control"/>
 										</div>
 										<div className="form-group">
-											<label for="eventTitle"> Password </label>
+											<label> Password </label>
 											<input type="textarea" className="form-control"/>
 										</div>
 										<button type="button"> <a href="/dashboard" >Sign In</a> </button>
