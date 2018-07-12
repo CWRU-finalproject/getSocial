@@ -9,9 +9,9 @@ import { Navbar, Button } from 'react-bootstrap';
 import { 
   BrowserRouter as Router,
   Route,
-  Link,
-  Switch,
-  Redirect
+  //Link,
+  Switch
+ // Redirect
 } from 'react-router-dom';
 
 class App extends Component {
@@ -37,7 +37,7 @@ class App extends Component {
 
         <div className="container">
 
-          <h1> get Social </h1>
+          <h1 id="title"> getSocial </h1>
           
           <hr /> 
           <br />

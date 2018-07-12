@@ -21,18 +21,21 @@ class CreateUser extends React.Component {
 
 	handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.email && this.state.major && this.state.year) {
-      API.postUser({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        password: this.state.password,
-        email: this.state.email,
-        major: this.state.major,
-        year:this.state.year
-      })
-        .catch(err => console.log(err));
-    }
-  };
+	    if (this.state.firstName && this.state.lastName && this.state.email && this.state.major && this.state.year) {
+	    	API.postUser({
+		        firstName: this.state.firstName,
+		        lastName: this.state.lastName,
+		        password: this.state.password,
+		        email: this.state.email,
+		        major: this.state.major,
+		        year:this.state.year
+	    	}).catch(err => console.log(err));
+	    }
+    };
+
+	redirectToLogin = () => {
+
+	};
 
 
 	render(){
@@ -50,36 +53,36 @@ class CreateUser extends React.Component {
 									<form className="createEventForm">
 
 										<div className="form-group">
-											<label > First Name </label>
-											<input type="text" className="form-control" name="firstName" value={this.state.firstName}  onChange={this.handleInputChange} />
+											<label id="form"> First Name </label>
+											<input id="input" type="text" className="form-control" name="firstName" placeholder="First Name" value={this.state.firstName}  onChange={this.handleInputChange} />
 										</div>
 
 										<div className="form-group">
-											<label > Last Name </label>
-											<input type="text" className="form-control" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} />
+											<label id="form"> Last Name </label>
+											<input id="input" type="text" className="form-control" name="lastName" placeholder="Last Name" value={this.state.lastName} onChange={this.handleInputChange} />
 										</div>
 
 										<div className="form-group">
-											<label > Email </label>
-											<input type="email" className="form-control" name="email" value={this.state.email} onChange={this.handleInputChange} />
+											<label id="form"> Email </label>
+											<input id="input" type="email" className="form-control" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange} />
 										</div>
 
 										<div className="form-group">
-											<label > Password </label>
-											<input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleInputChange} />
+											<label id="form"> Password </label>
+											<input id="input" type="password" className="form-control" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
 										</div>
 
 										<div className="form-group">
-											<label > Major </label>
-											<input type="text" className="form-control" name="major" value={this.state.major} onChange={this.handleInputChange} />
+											<label id="form"> Major </label>
+											<input id="input" type="text" className="form-control" name="major" placeholder="Major" value={this.state.major} onChange={this.handleInputChange} />
 										</div>
 
 										<div className="form-group">
-											<label > Year </label>
-											<input type="text" className="form-control" name="year" value={this.state.year} onChange={this.handleInputChange} />
+											<label id="form"> Year </label>
+											<input id="input" type="text" className="form-control" name="year" placeholder="Year" value={this.state.year} onChange={this.handleInputChange} />
 										</div>
 										
-										<button type="button" onClick={this.handleFormSubmit}> submit </button>
+										<button id="signinBtn" type="button">Sign In</button><button type="button" id="signupBtn" onClick={this.handleFormSubmit}>Submit</button>
 									</form>
 							</div>
 						</div>
