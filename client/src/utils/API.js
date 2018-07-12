@@ -19,17 +19,8 @@ getUser: function(email,ps) {
     })
 },
 // Calls api route to create new user based on data input
-postUser: function(obj){
-    axios.post({
-        url:"/api/user",
-        data: obj
-    }).then((response) => {
-        console.log(response.json + "line 28")
-        alert("succesful")
-    })
-    .catch((err) => {
-        alert(err);
-    })
+postUser: function(userObj){
+    return axios.post("/api/user", userObj);
 },
 getAllUsers: function(){
     axios({

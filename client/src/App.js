@@ -4,6 +4,7 @@ import CreateEventComponent from "./components/CreateEventComponent/CreateEventC
 import CreateUserComponent from "./components/CreateUserComponent/CreateUserComponent.js";
 import EventContainerComponent from "./components/EventContainerComponent/EventContainerComponent.js";
 import LoginComponent from "./components/LoginComponent/LoginComponent.js";
+import { Navbar, Button } from 'react-bootstrap';
 
 import { 
   BrowserRouter as Router,
@@ -14,10 +15,24 @@ import {
 } from 'react-router-dom';
 
 class App extends Component {
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
+
+  login() {
+    this.props.auth.login();
+  }
+
+  logout() {
+    this.props.auth.logout();
+  }
   render() {
+    
+
     return (
     	
       <div className="App">
+      
       <Router>
 
         <div className="container">
