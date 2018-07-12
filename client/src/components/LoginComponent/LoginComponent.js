@@ -1,4 +1,5 @@
 import React from "react";
+import "./LoginComponent.css";
 
 class Login extends React.Component {
 
@@ -11,21 +12,19 @@ class Login extends React.Component {
 					<div className="col-md-6">
 						<div className="card">
 							<div className="card-body">
-								<h3 className="card-title"> Login </h3>
-									<form className="createEventForm">
+								<h3 className="card-title">Sign-In</h3>
+									<form className="LoginForm">
 										<div className="form-group">
-											<label for="eventTitle"> Email </label>
-											<input type="text" className="form-control"/>
+											<label id="form">Email</label>
+											<input id="input" type="text" className="form-control" placeholder="Email"/>
 										</div>
 										<div className="form-group">
-											<label for="eventTitle"> Password </label>
-											<input type="textarea" className="form-control"/>
+											<label id="form">Password</label>
+											<input id="input" type="textarea" className="form-control" placeholder="Password"/>
 										</div>
-										<button type="button"> <a href="/dashboard" >Sign In</a> </button>
-									</form>
-
-									<br />
-									<a href="/newuser "> Sign Up </a>
+										</form>
+										<a href="/dashboard"><button type="button" id="signinBtn">Sign In</button></a>
+									<a href="/newuser"><button type="button" id="signupBtn">Sign Up</button></a>
 							</div>
 						</div>
 					</div>

@@ -11,7 +11,7 @@ module.exports = {
             major: req.body.major,
             year: req.body.year
         }).then((data) => {
-            console.log("Login Posted: ");
+            console.log("Login Posted");
             func()
             return;
         }).catch((err) => {
@@ -22,12 +22,24 @@ module.exports = {
     // Gets User Info from DB
     getUser: (req,res) => {
         db.users.findOne({
-            where:{
+            where: {
                 email:req.body.email,
                 password:req.body.password
             }
         })
         .then((data) => {
+            res.json(data);
+        }).catch((err) => {
+            res.json(err);
+        })
+    },
+    
+    getAllUsers: (req, res) => {
+        db.users.findAll({
+            where: {
+                active: 1
+            }
+        }).then((data) => {
             res.json(data);
         }).catch((err) => {
             res.json(err);

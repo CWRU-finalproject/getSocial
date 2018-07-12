@@ -42,12 +42,16 @@ module.exports = (sequelize, Sequelize) => {
     		validate: {
       			len: [1]
 			}
+		},
+		active: {
+			type: Sequelize.BOOLEAN,
+			defaultValue: true
 		}
 	});
 
 
 	users.associate = function(models) {
-    	users.hasOne(models.event, {
+    	users.hasMany(models.events, {
      		onDelete: 'CASCADE'
 
     	});

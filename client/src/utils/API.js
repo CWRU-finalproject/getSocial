@@ -12,7 +12,6 @@ getUser: function(email,ps) {
             password:ps
         }
     }).then((user) => {
-        console.log(user)
         return user;
     }).catch((err) => {
         console.log(err);
@@ -20,14 +19,15 @@ getUser: function(email,ps) {
 },
 // Calls api route to create new user based on data input
 postUser: function(obj){
-    axios.post({
+    return axios.post("/api/user", obj)
+    /*axios({
         url:"/api/user",
+        type:"post",
         data: obj
-    }).then((response) => {
-        console.log(response.json + "line 28")
-        alert("succesful")
-    })
-    .catch((err) => {
+    })*/.then((response) => {
+        console.log("succesful");
+
+    }).catch((err) => {
         alert(err);
     })
 },
@@ -45,61 +45,36 @@ getAllUsers: function(){
 },
 //************************************* */
 //************************************* */
-getAllEvents: function(){
-    axios({
-        url:"/api/events",
-        type:"get",
 
+
+getAllEvents: function(array){
+   // return axios.get("api/events");
+
+    return axios({
+        url:"/api/events",
+        type:"get"
     })
-    .then((response) => {
-        return response;
-    })
-    .catch((err) => {
-        alert(err);
-    })
+
 },
-//adds an event to the database
+
+getFilteredEvents: function(array, filter){
+   // return axios.get("api/events");
+
+   return axios({
+        url:"/api/events/" + filter,
+        type:"get"
+    })
+
+},
+
 postEvent: function(obj){
-    axios({
-        url:"/api/event",
-        type:"post",
-        data:obj
-    })
+    return axios.post("/api/event", obj)
     .then((response) => {
-        console.log(response)
-        alert("successful")
-    })
-    .catch((err) => {
-        alert(err);
-    })
-},
-//remove needs user authentication
-removeEvent: function(id){
-    axios({
-        url:"/api/event/"+id,
-        type:"delete"
-    })
-    .then((response) => {
-        console.log(response);
-        alert("successful delete")
-    })
-    .catch((err) => {
-        alert(err)
-    })
-},
-//update needs user authentication
-updateEvent: function(id,obj){
-    axios({
-        url:"/api/event/"+id,
-        type:"put",
-        data: obj
-    })
-    .then((response) => {
-        console.log(response);
-        alert("update successful")
-    })
-    .catch((err) => {
+        //console.log(response)
+        console.log("successful");
+    }).catch((err) => {
         alert(err);
     })
 }
+
 }
