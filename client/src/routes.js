@@ -5,6 +5,10 @@ import Home from './Home/Home';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
+import CreateEventComponent from "./components/CreateEventComponent/CreateEventComponent.js";
+import CreateUserComponent from "./components/CreateUserComponent/CreateUserComponent.js";
+import EventContainerComponent from "./components/EventContainerComponent/EventContainerComponent.js";
+import LoginComponent from "./components/LoginComponent/LoginComponent.js";
 
 const auth = new Auth();
 
@@ -20,6 +24,8 @@ export const makeMainRoutes = () => {
         <div>
           <Route path="/" render={(props) => <App auth={auth} {...props} />} />
           <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+          <Route path="/dashboard/createevent" render={(props) => <CreateEventComponent auth={auth} {...props} />} />
+          <Route path="/dashboard" render={(props) => <EventContainerComponent auth={auth} {...props} />}/>
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} /> 

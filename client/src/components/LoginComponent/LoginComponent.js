@@ -1,10 +1,15 @@
 import React from "react";
 import "./LoginComponent.css";
+// App.js
+import Auth from '../../Auth/Auth.js';
+
+
 
 class Login extends React.Component {
 
 	render() {
-
+const auth = new Auth();
+auth.login();
 		return(
 
 			<div>
