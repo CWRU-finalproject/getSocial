@@ -3,7 +3,7 @@ const event = require("../controllers/eventController.js");
 
 module.exports = (app) => {
     
-    app.post("/api/event",function(req,res){
+    app.post("/api/events",function(req,res){
         event.postEvent(req, res, function(err){
             if(err){
                 console.log(err)
@@ -35,8 +35,29 @@ module.exports = (app) => {
             res.sendStatus(200);
         });
     });
+    app.get("/api/events/current/:userId", function(req, res){
+        event.getCurrentEvents(req, res, function(err) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                return;
+            }
+            res.sendStatus(200);
+        });
+    });
 
-    app.put("/api/event",function(req,res){
+    app.get("/api/events/past/:userId", function(req, res){
+        event.getPastEvents(req, res, function(err) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                return;
+            }
+            res.sendStatus(200);
+        });
+    });
+
+    app.put("/api/event/:id",function(req,res){
         event.update(req, res, function(err){
             if(err){
                 console.log(err)
@@ -46,8 +67,8 @@ module.exports = (app) => {
            res.sendStatus(200); 
         });
     });
-    app.delete("/api/event",function(req,res){
-        event.remove(req,  res, function(err){
+    app.delete("/api/event/:id",function(req,res){
+        event.deleteEvent(req, res, function(err){
             if(err){
                 console.log(err)
                 res.sendStatus(500)

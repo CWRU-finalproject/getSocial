@@ -66,15 +66,34 @@ getFilteredEvents: function(array, filter){
     })
 
 },
+    
+getCurrentEvents: function(array, userId){
+    return axios({
+        url:"/api/events/current/" + userId,
+        type:"get"
+    })
+},
+
+getPastEvents: function(array, userId){
+    return axios({
+        url:"/api/events/past/" + userId,
+        type:"get"
+    })
+},
 
 postEvent: function(obj){
-    return axios.post("/api/event", obj)
+    return axios.post("/api/events", obj)
     .then((response) => {
         //console.log(response)
         console.log("successful");
     }).catch((err) => {
         alert(err);
     })
+},
+
+deleteEvent: function(id){
+    return axios.delete("/api/event/" + id);
 }
+
 
 }
