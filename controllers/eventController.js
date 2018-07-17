@@ -33,6 +33,32 @@ module.exports = {
         })
       },
 
+    getCurrentEvents:(req, res) => {
+      db.events.findAll({
+        where: {
+          userId: req.params.userId,
+          active: 1
+          }
+        }).then((data) => {
+          res.json(data);
+        }).catch((err) => {
+          return err;
+        })
+      },
+
+    getPastEvents:(req, res) => {
+      db.events.findAll({
+        where: {
+          userId: req.params.userId,
+          active: 2
+          }
+        }).then((data) => {
+          res.json(data);
+        }).catch((err) => {
+          return err;
+        })
+      },
+
       // Filter Events
       filterEvents:(req, res) => {
         db.events.findAll({
@@ -45,30 +71,22 @@ module.exports = {
         }).catch((err) => {
           return err;
         })
+      },
+
+      deleteEvent:(req, res) => {
+        db.events.destroy({
+          where: {
+            id: req.params.id
+          }
+        })
       }
 
 
-
-
-      // //Update an event
-      // update: function(req, res) {
-      //   db.events
-      //     .findOneAndUpdate({ id: req.params.id }, req.body)
-      //     .then((data) => {
-      //       return data;
-      //   }).catch((err) => {
-      //       return err;
-      //   })
-      // },
-      // //Allows user to delete an event
-      // remove: function(req, res) {
-      //   db.events
-      //     .findById({ id: req.params.id })
-      //     .then(dbModel => dbModel.remove())
-      //     .then((data) => {
-      //       return data;
-      //   }).catch((err) => {
-      //       return err;
+      // Update Attendees
+      // updateAttendees:(req, res) => {
+      //   db.events.update({
+      //     attendees: req.body.attendees
       //   })
       // }
+
 }

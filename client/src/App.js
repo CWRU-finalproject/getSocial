@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
+import bg from "./images/architecture-building-campus-356086.jpg";
 import CreateEventComponent from "./components/CreateEventComponent/CreateEventComponent.js";
 import CreateUserComponent from "./components/CreateUserComponent/CreateUserComponent.js";
 import EventContainerComponent from "./components/EventContainerComponent/EventContainerComponent.js";
 import LoginComponent from "./components/LoginComponent/LoginComponent.js";
+
+import UserProfileComponent from "./components/UserProfileComponent/UserProfileComponent.js";
+import Navigation from "./components/NavComponent/Navigation.js";
+
+
 import { Navbar, Button } from 'react-bootstrap';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
+
 import { 
   BrowserRouter as Router,
   Route,
@@ -38,7 +45,9 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
 
     return (
-    	
+      
+      <div style={{backgroundImage: `url(${bg})`}} className="bg">
+
       <div className="App">
       <div>
         <Navbar fluid>
@@ -83,17 +92,19 @@ class App extends Component {
       {/* <Router>
 
         <div className="container">
-
-          <h1 id="title"> getSocial </h1>
+        <Navigation />
           
-          <hr /> 
           <br />
 
           <Switch>
             <Route path="/login" component={LoginComponent} />
             <Route path="/dashboard/createevent" component={CreateEventComponent} />
             <Route path="/dashboard" component={EventContainerComponent}/>
+            <Route path="/userprofile" component={UserProfileComponent} />
             <Route path="/newuser" component={CreateUserComponent}/>
+
+          
+
             <Route path="/callback" render={(props) => {
               debugger
             handleAuthentication(props);
@@ -101,11 +112,13 @@ class App extends Component {
           }}/>
           </Switch>  
 
+
+        
         </div>
 
       </Router> */}
       </div>
-      
+      </div>
 
     );
   }

@@ -15,7 +15,7 @@ auth.login();
 			<div>
 				<div className="row justify-content-center">
 					<div className="col-md-6">
-						<div className="card">
+						<div className="card" id="login-card">
 							<div className="card-body">
 								<h3 className="card-title">Sign-In</h3>
 									<form className="LoginForm">

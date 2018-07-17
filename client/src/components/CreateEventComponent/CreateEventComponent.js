@@ -54,7 +54,7 @@ class CreateEvent extends React.Component {
 			<br />
 				<div className="row justify-content-center">
 					<div className="col-md-8">
-						<div className="card">
+						<div className="card" id="createEvent-card">
 							<div className="card-body">
 								<h3 className="card-title"> New Event </h3>
 									<form className="createEventForm">

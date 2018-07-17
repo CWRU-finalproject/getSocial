@@ -36,6 +36,11 @@ module.exports = (sequelize, Sequelize) => {
 			validate: {
 				len: [1]
 			}
+		},
+		attendees: {
+			type: Sequelize.INTEGER,
+			allowNull: false,
+			defaultValue: 0,
 		}
 	});
 
