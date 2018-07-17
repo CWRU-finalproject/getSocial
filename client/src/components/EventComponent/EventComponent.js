@@ -13,13 +13,14 @@ class EventCard extends React.Component {
 			<br />
 				<div className="row justify-content-center">
 					<div className="col-md-12">
-						<div className="card">
+						<div className="card" id="event-card">
 							<div className="card-body">
+							<hr class="style2" />
 								<h3 className="eventTitle"> {this.props.title} </h3>
+								<hr class="style2" />
 								<p className="eventDescription"> {this.props.description} </p>
 								<p className="eventLocation"> {this.props.location} </p>
 								<p className="eventDate"> {this.props.date} </p>
-
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,30 @@
+#event-card {
+    height: 40;
+    background-color: #2c3e50;
+    margin-bottom: 10;
+    padding: 10;
+    color: #fff;
+    
+}
+
+.eventTitle {
+    text-align: center;
+    font-family: Courier;
+    text-shadow: 2px 2px #000000;
+}
+
+.eventDescription, .eventLocation, .eventDate {
+    font-family: Verdana;
+}
+
+/* Single-direction drop shadow */
+hr {
+    border: 0;
+    border-top: 2px dotted #8c8c8c;
+}
+
+hr.style2 { 
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  } 

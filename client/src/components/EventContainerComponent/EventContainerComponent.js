@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../../utils/API.js";
 import EventCard from "../EventComponent";
+import "./EventContainerComponent.css";
 
 class EventContainer extends React.Component {
 
@@ -52,12 +53,12 @@ class EventContainer extends React.Component {
 
 				<div className="row  justify-content-end">
 				<div className="col-md-9">
-						<div className="card">
+						<div className="card" id="eventContainer-card">
 							<div className="card-body">
 
 
-								
-								<h1 className="card-title"> Current Events </h1>
+
+								<h1 className="card-title" id="currentEvents"> Current Events </h1>
 								<hr/>
 
 
@@ -77,7 +78,7 @@ class EventContainer extends React.Component {
 								
 						<span>
 							
-							<a href="/dashboard/createevent"><button id="signinBtn">Create New Event</button></a>
+							<a href="/dashboard/createevent"><button id="signinBtn">Create New</button></a>
 							
 						</span>
 								
@@ -88,7 +89,7 @@ class EventContainer extends React.Component {
 						</div>
 					</div>
 					<div className="col-md-3">
-						<div className="card">
+						<div className="card" id="eventFilter-card">
 							<div className="card-body">
 								<h3 className="card-title"> Filter Events </h3>
 								<form className="eventFilterForm">

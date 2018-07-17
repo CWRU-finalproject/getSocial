@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import bg from "./images/architecture-building-campus-356086.jpg";
 import CreateEventComponent from "./components/CreateEventComponent/CreateEventComponent.js";
 import CreateUserComponent from "./components/CreateUserComponent/CreateUserComponent.js";
 import EventContainerComponent from "./components/EventContainerComponent/EventContainerComponent.js";
 import LoginComponent from "./components/LoginComponent/LoginComponent.js";
+import Navigation from "./components/NavComponent/Navigation.js";
 
 import { 
   BrowserRouter as Router,
@@ -16,15 +18,15 @@ import {
 class App extends Component {
   render() {
     return (
-    	
+      
+      <div style={{backgroundImage: `url(${bg})`}} className="bg">
+
       <div className="App">
       <Router>
 
         <div className="container">
-
-          <h1 id="title"> getSocial </h1>
+        <Navigation />
           
-          <hr /> 
           <br />
 
           <Switch>
@@ -34,11 +36,12 @@ class App extends Component {
             <Route path="/newuser" component={CreateUserComponent}/>
           </Switch>  
 
+        
         </div>
 
       </Router>
       </div>
-      
+      </div>
 
     );
   }

@@ -1,5 +1,21 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css');
 
-#title {
-    font-family: courier;
+body, html {
+    height: 100% !important;
+} 
+.bg {
+
+
+    /* Full height  */
+    height: 80%;
+
+     /* Center and scale the image nice  */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#root{
+    height:100%;
 }
