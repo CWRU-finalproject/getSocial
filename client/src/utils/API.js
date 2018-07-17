@@ -19,13 +19,35 @@ getUser: function(email,ps) {
 },
 // Calls api route to create new user based on data input
 postUser: function(obj){
-    return axios.post("/api/user", obj)
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://cwrugroup.auth0.com/dbconnections/signup",
+        "method": "POST",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "processData": false,
+        "data": {
+            client_id:"tD0l71PNOSeWwWqwLE3VawPTzDo2Ak37",
+            email: obj.email,
+            password: obj.password,
+            connection:"Username-Password-Authentication",
+            user_metadata:{
+                firstname:obj.firstName,
+                lastname:obj.lastName,
+                major:obj.major,
+                year:obj.year
+            }
+        }
+      }
+    return axios(settings)
     /*axios({
         url:"/api/user",
         type:"post",
         data: obj
     })*/.then((response) => {
-        console.log("succesful");
+        console.log(response);
 
     }).catch((err) => {
         alert(err);

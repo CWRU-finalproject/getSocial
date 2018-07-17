@@ -20,10 +20,17 @@ export default class Auth {
     scope: 'openid'
   });
 
-  login() {
-    this.auth0.authorize();
+  login(username,password) {
+    this.auth0.login({
+      realm: "Username-Password-Authentication",
+      username: username,
+      password: password
+    });
   }
-  
+  crossOrigin(){
+    this.auth0.crossOriginVerification();
+
+  }
 
   handleAuthentication() {
     this.auth0.parseHash((err, authResult) => {
@@ -31,7 +38,7 @@ export default class Auth {
         this.setSession(authResult);
         history.replace('/dashboard');
       } else if (err) {
-        history.replace('/dashboard');
+        history.replace('/');
         console.log(err);
       }
     });
@@ -62,6 +69,11 @@ export default class Auth {
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
+ 
+
+getProfile(){
+  client.userInfo(accessToken,cb)
+}
 }
 
   

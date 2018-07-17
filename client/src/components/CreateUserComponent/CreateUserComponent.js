@@ -1,7 +1,7 @@
 import React from "react";
 import API from "../../utils/API.js";
 import "./CreateUserComponent.css";
-
+import Auth from "../../Auth/Auth";
 class CreateUser extends React.Component {
 	state = {
 		firstName: "",
@@ -29,8 +29,10 @@ class CreateUser extends React.Component {
 		        email: this.state.email,
 		        major: this.state.major,
 		        year:this.state.year
-	    	}).catch(err => console.log(err));
-	    }
+			})
+			.catch(err => console.log(err));
+		}
+		
     };
 
 	redirectToLogin = () => {

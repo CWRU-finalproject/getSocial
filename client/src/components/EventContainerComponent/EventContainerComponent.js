@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../../utils/API.js";
 import EventCard from "../EventComponent";
+import Auth from '../../Auth/Auth.js';
 
 class EventContainer extends React.Component {
 
@@ -22,6 +23,8 @@ class EventContainer extends React.Component {
 					events: data
 				})
 			});
+			const auth = new Auth();
+			auth.getProfile();
 	}
 
 	handleInputChange = event => {
