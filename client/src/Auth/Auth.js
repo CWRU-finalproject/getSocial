@@ -71,9 +71,7 @@ export default class Auth {
   }
  
 
-getProfile(){
-  client.userInfo(accessToken,cb)
-}
+
 }
 
   
