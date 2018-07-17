@@ -49,7 +49,7 @@ class CreateUser extends React.Component {
 			<br />
 				<div className="row justify-content-center">
 					<div className="col-md-8">
-						<div className="card">
+						<div className="card" id="newUser-card">
 							<div className="card-body">
 								<h3 className="card-title"> New User </h3>
 									<form className="createEventForm">

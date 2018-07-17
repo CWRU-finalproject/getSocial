@@ -1,103 +1,115 @@
 import React from "react";
 import API from "../../utils/API.js";
 import EventCard from "../EventComponent";
-<<<<<<< HEAD
-import Auth from '../../Auth/Auth.js';
-=======
-import "./EventContainerComponent.css";
->>>>>>> c237e381f424d5872e25333b104a040c384313c3
+//import DeleteBtn from "../DeleteEventComponent";
+import "./UserProfileComponent.css";
 
-class EventContainer extends React.Component {
+class UserProfile extends React.Component {
 
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			filter: "",
-			events: []
-		};
+			userEvents: [],
+			firstName: "",
+			lastName: "",
+			active: "",
+			userId: 1,
+			loggedIn: true
+		}
 
-		this.eventsArr = [];
+		this.userArr = [];
 
 	}
 
 	componentDidMount() {
-		API.getAllEvents(this.eventsArr).then(({data}) => {
+		API.getCurrentEvents(this.userArr, this.state.userId).then(({data}) => {
 				this.setState({
-					events: data
+					userEvents: data
 				})
 			});
-			const auth = new Auth();
-			auth.getProfile();
+
 	}
 
 	handleInputChange = event => {
 		const {name, value} = event.target;
 
-		if(value === "All Events"){
-			API.getAllEvents(this.eventsArr).then(({data}) => {
+		if(value === "Current"){
+			API.getCurrentEvents(this.userArr, this.state.userId).then(({data}) => {
 				this.setState({
 					[name]: value,
-					events: data
+					userEvents: data
 				})
 			});
 		} else {
-			API.getFilteredEvents(this.eventsArr, value).then(({data}) => {
+			API.getPastEvents(this.userArr, this.state.userId).then(({data}) => {
 				this.setState({
 					[name]: value,
-					events: data
+					userEvents: data
 				})
 			});
 		}							
 	};
 
+	click = event => {
+		event.preventDefault();
+		const id = event.target.id;
+		API.deleteEvent(id).then(API.getCurrentEvents(this.userArr, this.state.userId).then(({data}) => {
+			this.setState({
+				userEvents: data
+			})
+		}));
+	};
+
+
+
+
 	render() {
 
-		return(
+		return (
 
 			<div>
 
 				<div className="row  justify-content-end">
 
 					<div className="col-md-9">
-						<div className="card" id="eventContainer-card">
+						<div className="card">
 							<div className="card-body">
-								<h1 className="card-title" id="currentEvents"> Current Events </h1>
+								<h1 className="card-title"> Your Events </h1>
 									<hr/>
-									{this.state.events.sort(function(a, b){
+
+									{this.state.userEvents.sort(function(a, b){
     									var dateA=new Date(a.date), dateB=new Date(b.date)
     										return dateA-dateB
-										}).map(thingy => (
-											
+										}).map(thingy => (	
 											<EventCard 
 												key={thingy.id}
 												title={thingy.title}
 												description={thingy.description}
 												location={thingy.location}
 												date={thingy.date}
+												userId={thingy.userId}
 												id={thingy.id}
 												click={this.click}
-												userid={thingy.userId}
+												loggedIn={this.state.loggedIn}
+												active={thingy.active}
 											/>
+
 									))}		
+										
 							</div>
 						</div>
 					</div>
 
 					<div className="col-md-3">
 						<div className="card">
-							<div className="card-body" id="eventFilter-card">
+							<div className="card-body">
 								<h3 className="card-title"> Filter Events </h3>
 								<form className="eventFilterForm">
 									<div className="form-group">
-										<select className="form-control" id="signinBtn" name="filter" value={this.state.filter}  onChange={this.handleInputChange}>
-											
-											<option> All Events </option>
-											<option> Recreation </option>
-											<option> Study </option>
-											<option> Meal </option>
-											<option> Club Event </option>
-											<option> Misc </option>
+										<select className="form-control" id="signinBtn" name="active" value={this.state.active}  onChange={this.handleInputChange}>
+											<option> Current </option>
+											<option> Past </option>
 										</select>
 									</div>
 
@@ -112,16 +124,12 @@ class EventContainer extends React.Component {
 						</div>
 					</div>
 
-					
-
 				</div>
 			</div>
 
 		);
 
 	}
-
 }
 
-
-export default EventContainer;
+export default UserProfile;
