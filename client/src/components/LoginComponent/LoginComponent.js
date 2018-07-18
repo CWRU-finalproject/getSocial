@@ -6,10 +6,23 @@ import Auth from '../../Auth/Auth.js';
 
 
 class Login extends React.Component {
-
+	state = {
+		email: "",
+		password: ""
+	};
+	handleInputChange = event => {
+		const {name, value} = event.target;
+		this.setState({
+			[name]: value
+		});
+	};
+	handleLoginSubmit = event => {
+		event.preventDefault()
+		const auth = new Auth();
+		auth.login(this.state.email,this.state.password);
+	}
 	render() {
-const auth = new Auth();
-auth.login();
+		
 		return(
 
 			<div>
@@ -21,15 +34,15 @@ auth.login();
 									<form className="LoginForm">
 										<div className="form-group">
 											<label id="form">Email</label>
-											<input id="input" type="text" className="form-control" placeholder="Email"/>
+											<input id="input" type="text" className="form-control" placeholder="Email" name="email" value={this.state.email}  onChange={this.handleInputChange} />
 										</div>
 										<div className="form-group">
 											<label id="form">Password</label>
-											<input id="input" type="textarea" className="form-control" placeholder="Password"/>
+											<input id="input" type="textarea" className="form-control" placeholder="Password" name="password" value={this.state.password}  onChange={this.handleInputChange} />
 										</div>
 										</form>
-										<a href="/dashboard"><button type="button" id="signinBtn">Sign In</button></a>
-									<a href="/newuser"><button type="button" id="signupBtn">Sign Up</button></a>
+										<a><button type="button" id="signinBtn" onClick={this.handleLoginSubmit}>Sign In</button></a>
+									<a href="/signup"><button type="button" id="signupBtn">Sign Up</button></a>
 							</div>
 						</div>
 					</div>

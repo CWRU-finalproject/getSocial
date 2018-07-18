@@ -23,6 +23,7 @@ class EventContainer extends React.Component {
 					events: data
 				})
 			});
+			
 	}
 
 	handleInputChange = event => {
