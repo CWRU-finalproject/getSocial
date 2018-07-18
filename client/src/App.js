@@ -23,11 +23,7 @@ import {
 } from 'react-router-dom';
 const auth = new Auth();
 
-const handleAuthentication = ({location}) => {
-  if (/access_token|id_token|error/.test(location.hash)) {
-    auth.handleAuthentication();
-  }
-}
+
 
 class App extends Component {
   goTo(route) {
@@ -46,7 +42,6 @@ class App extends Component {
 
     return (
       
-      <div style={{backgroundImage: `url(${bg})`}} className="bg">
 
 
       <div className="App">
@@ -91,7 +86,7 @@ class App extends Component {
         </Navbar>
         </div>
         
-      </div>
+      
 
       </div>
       
