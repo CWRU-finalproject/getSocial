@@ -10,7 +10,7 @@ import CreateUserComponent from "./components/CreateUserComponent/CreateUserComp
 import EventContainerComponent from "./components/EventContainerComponent/EventContainerComponent.js";
 import LoginComponent from "./components/LoginComponent/LoginComponent.js";
 import Login from './components/LoginComponent/LoginComponent.js';
-
+import bg from "./images/architecture-building-campus-356086.jpg";
 const auth = new Auth();
 
 const handleAuthentication = ({location}) => {
@@ -21,12 +21,14 @@ const handleAuthentication = ({location}) => {
 
 export const makeMainRoutes = () => {
   return (
+    <div style={{backgroundImage: `url(${bg})`}} className="bg">
+
       <Router history={history}>
-        <div>
+        <div className = 'container'>
           <Route path="/" render={(props) => <App auth={auth} {...props} />} />
           <Route path="/login" render={(props) => <Login auth={auth} {...props} />} />
           <Route path="/dashboard/createevent" render={(props) => <CreateEventComponent auth={auth} {...props} />} />
-          <Route path="/dashboard" render={(props) => <EventContainerComponent auth={auth} {...props} />}/>
+          <Route exact path="/dashboard" render={(props) => <EventContainerComponent auth={auth} {...props} />}/>
           <Route path="/signup" render={(props) => <CreateUserComponent auth={auth} {...props} />}/>
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
@@ -34,5 +36,6 @@ export const makeMainRoutes = () => {
           }}/>
         </div>
       </Router>
+      </div>
   );
 }
