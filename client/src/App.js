@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import bg from "./images/architecture-building-campus-356086.jpg";
+import bg from "./images/concrete_wall_2.png";
 import CreateEventComponent from "./components/CreateEventComponent/CreateEventComponent.js";
 import CreateUserComponent from "./components/CreateUserComponent/CreateUserComponent.js";
 import EventContainerComponent from "./components/EventContainerComponent/EventContainerComponent.js";

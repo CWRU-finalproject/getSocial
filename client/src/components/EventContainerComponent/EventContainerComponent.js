@@ -80,8 +80,8 @@ class EventContainer extends React.Component {
 					</div>
 
 					<div className="col-md-3">
-						<div className="card">
-							<div className="card-body" id="eventFilter-card">
+						<div className="card" id="eventFilter-card">
+							<div className="card-body">
 								<h3 className="card-title"> Filter Events </h3>
 								<form className="eventFilterForm">
 									<div className="form-group">
